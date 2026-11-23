@@ -1,0 +1,167 @@
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+local PlayerGui = LocalPlayer:WaitForChild("PlayerGui")
+
+local ScreenGui = Instance.new("ScreenGui")
+ScreenGui.Name = "Origin1x1x1x1Gui"
+ScreenGui.ResetOnSpawn = false
+ScreenGui.Parent = PlayerGui
+
+local MainFrame = Instance.new("Frame")
+MainFrame.Name = "MainFrame"
+MainFrame.Size = UDim2.new(0, 440, 0, 365)
+MainFrame.Position = UDim2.new(0.5, -220, 0.5, -182)
+MainFrame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+MainFrame.BorderSizePixel = 0
+MainFrame.Active = true
+MainFrame.Draggable = true
+MainFrame.Parent = ScreenGui
+
+local RedColor = Color3.fromRGB(255, 25, 0)
+local BlackText = Color3.fromRGB(0, 0, 0)
+
+local function createButton(name, text, pos, size)
+	local btn = Instance.new("TextButton")
+	btn.Name = name
+	btn.Text = text
+	btn.Position = pos
+	btn.Size = size
+	btn.BackgroundColor3 = RedColor
+	btn.BorderSizePixel = 0
+	btn.TextColor3 = BlackText
+	btn.Font = Enum.Font.SourceSansBold
+	btn.TextScaled = true
+	
+	local padding = Instance.new("UIPadding")
+	padding.PaddingTop = UDim.new(0, 3)
+	padding.PaddingBottom = UDim.new(0, 3)
+	padding.PaddingLeft = UDim.new(0, 4)
+	padding.PaddingRight = UDim.new(0, 4)
+	padding.Parent = btn
+	
+	btn.Parent = MainFrame
+	return btn
+end
+
+createButton("Small Sky", "Small Sky", UDim2.new(0, 28, 0, 12), UDim2.new(0, 118, 0, 34))
+createButton("Btools", "Btools", UDim2.new(0, 265, 0, 12), UDim2.new(0, 148, 0, 34))
+
+local TitleLabel = Instance.new("TextLabel")
+TitleLabel.Name = "TitleBanner"
+TitleLabel.Text = "1x1x1x1 gui but more original"
+TitleLabel.Position = UDim2.new(0, 0, 0, 58)
+TitleLabel.Size = UDim2.new(1, 0, 0, 32)
+TitleLabel.BackgroundColor3 = RedColor
+TitleLabel.BorderSizePixel = 0
+TitleLabel.TextColor3 = BlackText
+TitleLabel.Font = Enum.Font.SourceSansBold
+TitleLabel.TextScaled = true
+local titlePad = Instance.new("UIPadding")
+titlePad.PaddingLeft = UDim.new(0, 15)
+titlePad.PaddingRight = UDim.new(0, 15)
+titlePad.Parent = TitleLabel
+TitleLabel.Parent = MainFrame
+
+local gridButtons = {
+	{Name = "Night", Text = "Night", Pos = UDim2.new(0, 28, 0, 105)},
+	{Name = "Raining Heads", Text = "Raining Heads", Pos = UDim2.new(0, 160, 0, 105)},
+	{Name = "Ambient", Text = "Ambient", Pos = UDim2.new(0, 290, 0, 105)},
+	
+	{Name = "Classic Avatar All", Text = "Classic\nAvatar All", Pos = UDim2.new(0, 28, 0, 156)},
+	{Name = "1x1x1x1 Laugh", Text = "1x1x1x1 Laugh", Pos = UDim2.new(0, 160, 0, 156)},
+	{Name = "Play Shedletsky Laugh", Text = "Play Shedletsky\nLaugh", Pos = UDim2.new(0, 290, 0, 156)},
+
+	{Name = "1x1x1x1 Theme", Text = "1x1x1x1 theme", Pos = UDim2.new(0, 28, 0, 207)},
+	{Name = "1x1x1x1 Messages", Text = "1x1x1x1\nMessages", Pos = UDim2.new(0, 160, 0, 207)},
+	{Name = "Black", Text = "Black", Pos = UDim2.new(0, 290, 0, 207)},
+	
+	{Name = "Disco", Text = "Disco", Pos = UDim2.new(0, 28, 0, 258)},
+	{Name = "2014 Destroy", Text = "2014 Destroy", Pos = UDim2.new(0, 160, 0, 258)},
+	{Name = "Phokius V3", Text = "Phokius V3", Pos = UDim2.new(0, 290, 0, 258)},
+	
+	{Name = "666", Text = "666", Pos = UDim2.new(0, 28, 0, 309)},
+	{Name = "Epic Sax Guy", Text = "Epic Sax\nGuy", Pos = UDim2.new(0, 160, 0, 309)},
+	{Name = "Stop Music", Text = "Stop Music", Pos = UDim2.new(0, 290, 0, 309)}
+}
+
+for _, btnData in ipairs(gridButtons) do
+	createButton(btnData.Name, btnData.Text, btnData.Pos, UDim2.new(0, 118, 0, 36))
+end
+
+local ButtonActions = {
+	["Small Sky"] = function()
+		print("Small Sky tıklandı! Buraya kendi kodunu ekle.")
+	end,
+	
+	["Btools"] = function()
+		print("Btools tıklandı! Buraya kendi kodunu ekle.")
+	end,
+	
+	["Night"] = function()
+		print("Night tıklandı! Buraya kendi kodunu ekle.")
+	end,
+	
+	["Raining Heads"] = function()
+		print("Raining Heads tıklandı! Buraya kendi kodunu ekle.")
+	end,
+	
+	["Ambient"] = function()
+		print("Ambient tıklandı! Buraya kendi kodunu ekle.")
+	end,
+	
+	["Classic Avatar All"] = function()
+		print("Classic Avatar All tıklandı! Buraya kendi kodunu ekle.")
+	end,
+	
+	["1x1x1x1 Laugh"] = function()
+		print("1x1x1x1 Laugh tıklandı! Buraya kendi kodunu ekle.")
+	end,
+	
+	["Play Shedletsky Laugh"] = function()
+		print("Play Shedletsky Laugh tıklandı! Buraya kendi kodunu ekle.")
+	end,
+	
+	["1x1x1x1 Theme"] = function()
+		print("1x1x1x1 Theme tıklandı! Buraya kendi kodunu ekle.")
+	end,
+	
+	["1x1x1x1 Messages"] = function()
+		print("1x1x1x1 Messages tıklandı! Buraya kendi kodunu ekle.")
+	end,
+	
+	["Black"] = function()
+		print("Black tıklandı! Buraya kendi kodunu ekle.")
+	end,
+	
+	["Disco"] = function()
+		print("Decals tıklandı! Buraya kendi kodunu ekle.")
+	end,
+	
+	["2014 Destroy"] = function()
+		print("Skybox tıklandı! Buraya kendi kodunu ekle.")
+	end,
+	
+	["Phokius V3"] = function()
+		print("Phokius V3 tıklandı! Buraya kendi kodunu ekle.")
+	end,
+	
+	["666"] = function()
+		print("666 tıklandı! Buraya kendi kodunu ekle.")
+	end,
+	
+	["Epic Sax Guy"] = function()
+		print("Rainbow Colors tıklandı! Buraya kendi kodunu ekle.")
+	end,
+	
+	["Stop Music"] = function()
+		print("Stop Music tıklandı! Buraya kendi kodunu ekle.")
+	end
+}
+
+for buttonName, actionFunction in pairs(ButtonActions) do
+	local foundButton = MainFrame:FindFirstChild(buttonName)
+	if foundButton and foundButton:IsA("TextButton") then
+		foundButton.MouseButton1Click:Connect(actionFunction)
+	else
+	end
+end
