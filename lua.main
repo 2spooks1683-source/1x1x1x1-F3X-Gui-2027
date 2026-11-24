@@ -158,7 +158,7 @@ local ButtonActions = {
 	end,
 	
 	["Black"] = function()
-		print("Black tıklandı! Buraya kendi kodunu ekle.")
+		local player = game.Players.LocalPlayer local char = player.Character or player.CharacterAdded:Wait() local backpack = player:WaitForChild("Backpack") local function getF3XTool() for _, item in ipairs(backpack:GetChildren()) do if item:FindFirstChild("SyncAPI") then return item end end for _, item in ipairs(char:GetChildren()) do if item:FindFirstChild("SyncAPI") then return item end end return nil end local f3x = getF3XTool() if not f3x then return end local syncAPI = f3x.SyncAPI local serverEndpoint = syncAPI.ServerEndpoint local function setPartColor(part, color) local args = { [1] = "SyncColor", [2] = { [1] = { ["Part"] = part, ["Color"] = color, ["UnionColoring"] = false } } } serverEndpoint:InvokeServer(unpack(args)) end local function colorAllParts() local blackColor = Color3.fromRGB(0, 0, 0) for _, object in ipairs(workspace:GetDescendants()) do if object:IsA("BasePart") or object:IsA("UnionOperation") then task.spawn(function() setPartColor(object, blackColor) end) end end end colorAllParts()
 	end,
 	
 	["Disco"] = function()
